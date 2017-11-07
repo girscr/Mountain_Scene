@@ -87,7 +87,7 @@ class star ():
         if self.red > 0:
             self.red -= 5
         if self.green > 128:
-            self.green -= 4
+            self.green -= 3
 
 class sun():
     '''creates the figure, kenny, and will handle his initial location and 
@@ -123,6 +123,7 @@ class sled():
         #self.height = height
 
     def draw_sled(self):
+        BLACK = (0, 0, 0)
         point_list1 = [[self.x, self.y + 100], [self.x + 50, self.y + 100],
                        [self.x + 60, self.y + 90], [self.x + 10, self.y + 90]]
         point_list2 = [[self.x + 70, self.y + 100], [self.x + 130, self.y + 100],
@@ -138,11 +139,11 @@ class sled():
                        [self.x + 85, self.y + 35], [self.x + 75, self.y + 35],
                        [self.x + 75, self.y + 20], [self.x + 55, self.y + 20],
                        [self.x + 55, self.y + 45], [self.x + 60, self.y + 55]]
-        pygame.draw.polygon(screen, BLACK, point_list1)
-        pygame.draw.polygon(screen, BLACK, point_list2)
-        pygame.draw.polygon(screen, BLACK, point_list3)
-        pygame.draw.polygon(screen, BLACK, person_list)
-        pygame.draw.circle(screen, BLACK, (self.x + 70, self.y + 10), 10)
+        pygame.draw.polygon(self.display, BLACK, point_list1)
+        pygame.draw.polygon(self.display, BLACK, point_list2)
+        pygame.draw.polygon(self.display, BLACK, point_list3)
+        pygame.draw.polygon(self.display, BLACK, person_list)
+        pygame.draw.circle(self.display, BLACK, (self.x + 70, self.y + 10), 10)
 
     def move_sled(self):
         self.x += self.speed_x
@@ -227,8 +228,8 @@ while running:
 
     #draw the snowy foreground
     pygame.draw.rect(screen, WHITE, (0, HEIGHT//2, WIDTH, HEIGHT//2))
-    sled.draw_sled(x_coord, y_coord)
-    #sled.move_sled()
+    sled.draw_sled()
+    sled.move_sled()
     #sled.bounce_sled()
 
     #draws the 2 mountains
