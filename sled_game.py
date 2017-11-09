@@ -1,5 +1,6 @@
 import pygame
 import random
+import game_objects as go
 
 class mountain():
     '''mountain class to place mountain, with snow cap, at the given
